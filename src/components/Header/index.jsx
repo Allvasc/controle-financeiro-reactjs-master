@@ -1,7 +1,7 @@
 import React from 'react'
 import * as C from './styles'
 
-const index = () => {
+const Header = () => {
   return (
     <C.Container>
         <C.Header>
@@ -13,4 +13,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Header

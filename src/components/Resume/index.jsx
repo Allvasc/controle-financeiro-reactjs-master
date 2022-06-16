@@ -3,7 +3,7 @@ import * as C from './styles'
 import ResumeItem from '../ResumeItem'
 import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp, FaDollarSign } from 'react-icons/fa'
 
-const index = () => {
+const Resume = () => {
   return (
     <C.Container>
       <ResumeItem title="Entradas" Icon={FaRegArrowAltCircleUp} value="1000" />
@@ -13,4 +13,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Resume

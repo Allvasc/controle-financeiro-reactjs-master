@@ -1,7 +1,7 @@
 import React from 'react'
 import * as C from './styles'
 
-const index = ({title, Icon, value}) => {
+const ResumeItem = ({title, Icon, value}) => {
   return (
     <C.Container>
         <C.Header>
@@ -14,4 +14,4 @@ const index = ({title, Icon, value}) => {
   )
 }
 
-export default index
+export default ResumeItem
