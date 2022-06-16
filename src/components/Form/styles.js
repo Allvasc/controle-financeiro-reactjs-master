@@ -40,6 +40,7 @@ export const RadioGroup = styled.div`
         margin-left: 20px;
         accent-color: black;
         margin-top: 0;
+        margin-right: 10px;
     }
 `;
 
