@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react'
 
 function App() {
 
- const data = localStorage.getItem('transactions')
+
+ const data = localStorage.getItem("transactions")
 
   const [transactionslist, setTrasactionsList] = useState(
     data ? JSON.parse(data) : []
@@ -18,12 +19,17 @@ function App() {
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
+
     const amoutExpense = transactionslist
     .filter((item) => item.expense)
     .map((transaction) => Number(transaction.amout))
 
+    const amoutIncome = transactionslist
+    .filter((item) => item.expense)
+    .map((transaction) => Number(transaction.amout))
+
     const expense = amoutExpense.reduce((acc, cur) => acc + cur, 0 ).toFixed(2)
-    const income = amoutExpense.reduce((acc, cur) => acc + cur, 0 ).toFixed(2)
+    const income = amoutIncome.reduce((acc, cur) => acc + cur, 0 ).toFixed(2)
 
     const total = Math.abs(income - expense).toFixed(2)
 
@@ -32,6 +38,12 @@ function App() {
     setTotal(`${ Number(income) < Number(expense) ? "-" : ""}R$ ${total}`)
 
   }, [transactionslist])
+
+  const handleAdd = (transaction) =>{
+    const newArrayTransactions = [...transactionslist, transaction]
+    setTrasactionsList(newArrayTransactions)
+    localStorage.setItem("transactions", JSON.stringify(newArrayTransactions))
+  }
 
 
   return (
