@@ -48,9 +48,8 @@ const Form = () => {
           onChange={(e) => setsIsExpense(!isExpense)}
           />
         <C.Label htmlFor='rExpenses'>Saida</C.Label>
-          
       </C.RadioGroup>
-
+      <C.Button>Adicionar</C.Button>
     </C.Container >
 
   )
