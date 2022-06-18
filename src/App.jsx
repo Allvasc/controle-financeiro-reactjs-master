@@ -10,7 +10,7 @@ function App() {
 
  const data = localStorage.getItem("transactions")
 
-  const [transactionslist, setTrasactionsList] = useState(
+  const [transactionslist, setTransactionsList] = useState(
     data ? JSON.parse(data) : []
   );
 
@@ -25,23 +25,22 @@ function App() {
     .map((transaction) => Number(transaction.amout))
 
     const amoutIncome = transactionslist
-    .filter((item) => item.expense)
+    .filter((item) => !item.expense)
     .map((transaction) => Number(transaction.amout))
 
-    const expense = amoutExpense.reduce((acc, cur) => acc + cur, 0 ).toFixed(2)
-    const income = amoutIncome.reduce((acc, cur) => acc + cur, 0 ).toFixed(2)
+    const expense = amoutExpense.reduce((acc, cur) => acc + cur, 0).toFixed(2)
+    const income = amoutIncome.reduce((acc, cur) => acc + cur, 0).toFixed(2)
 
     const total = Math.abs(income - expense).toFixed(2)
 
     setIncome(`R$ ${income}`)
     setExpense(`R$ ${expense}`)
-    setTotal(`${ Number(income) < Number(expense) ? "-" : ""}R$ ${total}`)
-
+    setTotal(`${Number(income) < Number(expense) ? "-" : ""}R$ ${total}`)
   }, [transactionslist])
 
   const handleAdd = (transaction) =>{
     const newArrayTransactions = [...transactionslist, transaction]
-    setTrasactionsList(newArrayTransactions)
+    setTransactionsList(newArrayTransactions)
     localStorage.setItem("transactions", JSON.stringify(newArrayTransactions))
   }
 
