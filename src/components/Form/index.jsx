@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as C from './styles'
 
-const Form = () => {
+const Form = ({handleAdd}) => {
 
   const [desc, setDesc] = useState("")
   const [amount, setAmount] = useState("")
@@ -65,7 +65,7 @@ const Form = () => {
           />
         <C.Label htmlFor='rExpenses'>Saida</C.Label>
       </C.RadioGroup>
-      <C.Button>Adicionar</C.Button>
+      <C.Button onClick={handleAdd}>Adicionar</C.Button>
     </C.Container >
 
   )
